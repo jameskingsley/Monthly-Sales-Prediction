@@ -6,6 +6,7 @@ numpy
 scikit-learn
 openpyxl
 python-dotenv
+plotly
 
 
 
