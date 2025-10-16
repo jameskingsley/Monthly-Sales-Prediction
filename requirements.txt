@@ -1,9 +1,12 @@
-streamlit==1.29.0
-mlflow==3.4.0
-pandas==2.0.3
+streamlit
+mlflow
+pandas
 mysql-connector-python
 numpy
 scikit-learn
+openpyxl
+python-dotenv
+
 
 
 
