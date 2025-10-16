@@ -1,0 +1,10 @@
+mlflow
+streamli
+pandas
+plotly
+scikit-learn
+pyyaml
+numpy
+cryptography
+cffi
+pycparser
