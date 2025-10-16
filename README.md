@@ -19,21 +19,21 @@ The system predicts monthly sales using lag features derived from historical dat
 
 ## Key Features
 
-✅ End-to-End ML Lifecycle – Data preprocessing, model training, tracking, registry, and deployment.
-✅ MySQL-Backed MLflow Tracking – Logs all experiments, parameters, metrics, and models to a relational database for durability.
-✅ Model Registry & Versioning – Tracks multiple versions of models and allows seamless promotion to Production.
-✅ Interactive Streamlit App – Clean dashboard for generating sales predictions and viewing historical results.
-✅ Forecast Visualization – Historical prediction trends displayed using Plotly charts.
+*  End-to-End ML Lifecycle – Data preprocessing, model training, tracking, registry, and deployment.
+*  MySQL-Backed MLflow Tracking – Logs all experiments, parameters, metrics, and models to a relational database for durability.
+*  Model Registry & Versioning – Tracks multiple versions of models and allows seamless promotion to Production.
+*  Interactive Streamlit App – Clean dashboard for generating sales predictions and viewing historical results.
+*  Forecast Visualization – Historical prediction trends displayed using Plotly charts.
 
 # Tech Stack
-Category	            Tools
-Programming Language	Python
-Frameworks	            Streamlit, Scikit-learn
-MLOps Tools         	MLflow, MySQL
-Visualization	        Plotly
-Data Handling	        Pandas, NumPy
-Environment	pip / virtualenv
-⚙️ System Architecture
+* Category	               Tools
+* Programming Language	   Python
+* Frameworks	            Streamlit, Scikit-learn
+* MLOps Tools         	   MLflow, MySQL
+* Visualization	         Plotly
+* Data Handling	         Pandas, NumPy
+
+##  System Architecture
    ┌──────────────────────┐
    │      Data Input      │
    └──────────┬───────────┘
@@ -57,14 +57,14 @@ Environment	pip / virtualenv
    │ (Prediction + Viz)   │
    └──────────────────────┘
 
-📂 Project Structure
-📦 Monthly_Sales_Prediction
-│
-├── app.py                  # Streamlit app for deployment
-├── requirements.txt        # Dependencies
-├── prediction_history.csv  # Saved predictions
-├── mlruns/                 # MLflow tracking folder
-├── README.md               # Project documentation
+## Project Structure
+#### Monthly_Sales_Prediction
+
+*  app.py                  # Streamlit app for deployment
+*  requirements.txt        # Dependencies
+*  prediction_history.csv  # Saved predictions
+*  lruns/                  # MLflow tracking folder
+*  README.md               # Project documentation
 
 # How It Works
 
