@@ -1,79 +1,87 @@
 # Monthly-Sales-Prediction
 
 
-## Monthly Sales Prediction System
+# Monthly Sales Prediction System
 
-An End-to-End MLOps Project using MLflow and Streamlit
+An End-to-End MLOps Project using MLflow, MySQL, and Streamlit
 
-### Project Overview
+## Project Overview
 
-This project demonstrates the full lifecycle of a machine learning regression model — from training and experiment tracking to deployment in an interactive web app.
+This project implements a complete MLOps workflow for a monthly sales forecasting model, integrating:
 
-The goal is to predict future monthly sales using lag-based historical data, enabling businesses to make informed decisions based on trends and patterns.
+MySQL as the backend tracking database for MLflow,
 
-### Features
+MLflow for experiment tracking, model registry, and version control, and
 
-End-to-End ML Lifecycle — Includes data preprocessing, model training, evaluation, versioning, and deployment.
-MLflow Integration — Tracks all model runs, parameters, metrics, and artifacts.
-Model Registry — Manages multiple versions with “Staging” and “Production” stages.
-Streamlit Web App — Interactive prediction dashboard with real-time forecasting and visualization.
-Prediction History — Automatically saves and visualizes prediction trends using Plotly.
+Streamlit for web deployment and visualization.
 
-## Tech Stack
-Category	Tools
-Language	Python
-Frameworks	Streamlit, Scikit-learn
-MLOps Tooling	MLflow
-Visualization	Plotly
-Data Handling	Pandas, NumPy
+The system predicts monthly sales using lag features derived from historical data, empowering organizations to forecast revenue trends and plan proactively.
+
+## Key Features
+
+✅ End-to-End ML Lifecycle – Data preprocessing, model training, tracking, registry, and deployment.
+✅ MySQL-Backed MLflow Tracking – Logs all experiments, parameters, metrics, and models to a relational database for durability.
+✅ Model Registry & Versioning – Tracks multiple versions of models and allows seamless promotion to Production.
+✅ Interactive Streamlit App – Clean dashboard for generating sales predictions and viewing historical results.
+✅ Forecast Visualization – Historical prediction trends displayed using Plotly charts.
+
+# Tech Stack
+Category	            Tools
+Programming Language	Python
+Frameworks	            Streamlit, Scikit-learn
+MLOps Tools         	MLflow, MySQL
+Visualization	        Plotly
+Data Handling	        Pandas, NumPy
 Environment	pip / virtualenv
-Project Structure
-Monthly_Sales_Prediction
+⚙️ System Architecture
+   ┌──────────────────────┐
+   │      Data Input      │
+   └──────────┬───────────┘
+              │
+              ▼
+   ┌──────────────────────┐
+   │  Model Training &    │
+   │  Tracking (MLflow)   │
+   └──────────┬───────────┘
+              │
+     MySQL Backend (for MLflow metadata)
+              │
+              ▼
+   ┌──────────────────────┐
+   │  Model Registry      │
+   └──────────┬───────────┘
+              │
+              ▼
+   ┌──────────────────────┐
+   │  Streamlit App       │
+   │ (Prediction + Viz)   │
+   └──────────────────────┘
+
+📂 Project Structure
+📦 Monthly_Sales_Prediction
 │
 ├── app.py                  # Streamlit app for deployment
 ├── requirements.txt        # Dependencies
 ├── prediction_history.csv  # Saved predictions
 ├── mlruns/                 # MLflow tracking folder
-└── README.md               # Project documentation
+├── README.md               # Project documentation
 
-Model Training & Tracking
+# How It Works
 
-Models trained: Linear Regression, Random Forest Regressor, Gradient Boosting Regressor
+## Model Training & Logging
 
-Metrics logged to MLflow (RMSE, MAE, R²)
+Trains models (Linear, RandomForest, GradientBoosting).
 
-Best model registered as:
-Monthly_Sales_Model → Version 1 → Stage: Production
+Logs params, metrics, and artifacts to MLflow connected to MySQL.
 
-Example logging snippet:
+## Model Registry & Promotion
 
-with mlflow.start_run():
-    mlflow.log_param("model_type", "RandomForest")
-    mlflow.log_metric("rmse", rmse)
-    mlflow.sklearn.log_model(rf_model, "model", registered_model_name="Monthly_Sales_Model")
+The best model is registered and promoted to Production in MLflow.
 
-Streamlit App Workflow
+## Deployment via Streamlit
 
-1️⃣ User enters input values: Year, Month, lag_1, lag_2, lag_3
-2️⃣ Model (loaded from MLflow Registry) predicts the sales
-3️⃣ Prediction is displayed and saved to history
-4️⃣ Plotly chart visualizes sales trends over time
-
-▶️ Running the App
-# 1. Install dependencies
-pip install -r requirements.txt
-
-# 2. Run MLflow server (optional)
-mlflow ui --backend-store-uri file:///C:/path/to/mlruns
-
-# 3. Launch the app
-streamlit run app.py
+The app loads the production model dynamically:
+Users enter year, month, and lag sales; the system returns predictions.
+Predictions are logged and visualized using Plotly.
 
 
-👤 James Kingsley Philip
-Data Scientist | MLOps Enthusiast | Machine Learning Engineer
-
-Would you like me to also generate a README version with emojis and badges (for GitHub visual appeal) — e.g., with shields like “Built with MLflow”, “Made with Streamlit”, etc.?
-It looks great in portfolios.
-
-ChatGPT can make mistakes. Check important info.
